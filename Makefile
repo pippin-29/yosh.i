@@ -14,7 +14,6 @@ COMPILE = gcc $(FLAGS) $(SOURCE) $(LINKL) $(LIBFT_A) -o $(NAME)
 all:
 			$(X86) make -C $(LIBFT)
 			$(X86) $(COMPILE) $(ADDSAN)
-			make clean -C $(LIBFT)
 
 run: all
 			./$(NAME)
