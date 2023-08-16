@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/16 11:31:09 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:10:46 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "../libft/includes/libft.h"
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <libgen.h>
 
 
 /// SETUP_C ///

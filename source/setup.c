@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:29:08 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/16 11:29:53 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:18:27 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ void print_prompt()
 	gethostname(hostname, sizeof (hostname));
 	username = getenv("USER");
 
-	ft_printf("\n%s@%s :: %s",username, hostname, cwd);
+	ft_printf("\n%s@%s :: %s ", username, hostname, basename(cwd));
 }
