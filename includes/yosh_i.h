@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/16 10:51:38 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/16 11:31:09 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,10 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+
+/// SETUP_C ///
+void	init_yosh_i();
+int		cmd_input(char *str);
+void	print_prompt();
 
 # endif
