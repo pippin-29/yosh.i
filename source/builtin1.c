@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 07:28:20 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 09:13:15 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,44 @@ int check_4_builtin(char **tokens)
 	return (0);
 }
 
-// int echo(char *option, char **strings)
-// {
+int echo(char **tokens)
+{
+	int i;
 
-// 	return (1);
-// }
+	i = 1;
+	if (strcmp(tokens[1], "-n") == 0)
+		i = 2;
+	while(tokens[i])
+	{
+		ft_printf("%s", tokens[i]);
+		if (tokens[i + 1])
+			ft_printf(" ");
+		i++;
+	}
+	ft_printf("\n");
+	return (1);
+}
 
-// int cd(char *path)
-// {
+int cd(char **tokens)
+{
+	if (!tokens[2])
+		chdir(tokens[1]);
+	return (1);
+}
 
-// 	return (1);
-// }
+int pwd(void)
+{
+	char cwd[1024];
 
-// int pwd(void)
-// {
+	getcwd(cwd, sizeof(cwd));
+	ft_printf("%s\n", cwd);
+	return (1);
+}
 
-// 	return (1);
-// }
-
-// int export(char *var)
-// {
-
-// 	return (1);
-// }
+int export(char **tokens)
+{
+	if (!tokens[2])
+		if (putenv(tokens[1]) == -1)
+			ft_printf("Failed");
+	return (1);
+}

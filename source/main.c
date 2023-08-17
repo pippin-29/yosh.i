@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:29:32 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 07:12:26 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 09:05:13 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ int main(void)
 		if (!cmd_input(input))
 			continue;
 		flag = parse_input(input, cmd);
-		run(flag, cmd);
-
+		if (flag > 0)
+			run(flag, cmd);
 	}
+	free(cmd);
 	return (0);
 }
