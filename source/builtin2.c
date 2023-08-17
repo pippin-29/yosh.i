@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtins.c                                         :+:      :+:    :+:   */
+/*   builtin2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/17 10:11:09 by dhadding         ###   ########.fr       */
+/*   Created: 2023/08/17 10:18:35 by dhadding          #+#    #+#             */
+/*   Updated: 2023/08/17 10:28:27 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
 
-int check_4_builtin(char **tokens)
+int unset(char *var)
 {
-	
+
+	return (1);
+}
+
+int env(void)
+{
+
+	return (1);
+}
+
+int exit_shell(void)
+{
+	exit(0);
 }
