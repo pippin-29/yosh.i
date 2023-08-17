@@ -6,8 +6,13 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/17 05:18:02 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/17 10:11:09 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
+
+int check_4_builtin(char **tokens)
+{
+	
+}
