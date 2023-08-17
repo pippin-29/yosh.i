@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/16 17:56:55 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/17 09:11:32 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 typedef struct s_cmd
 {
 	char ***cmds;
-	char *pipe:redir;
+	char *pipredir;
 
 } t_cmd;
 
@@ -35,5 +35,9 @@ typedef struct s_cmd
 void	init_yosh_i();
 int		cmd_input(char *str);
 void	print_prompt();
+
+/// PARSE_C ///
+int		parse_input(char *input, t_cmd *cmd);
+char	*find_piperedir(char **tokens);
 
 # endif
