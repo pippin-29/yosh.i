@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cmd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 10:29:32 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/17 10:39:05 by dhadding         ###   ########.fr       */
+/*   Created: 2023/08/17 10:38:08 by dhadding          #+#    #+#             */
+/*   Updated: 2023/08/17 10:41:37 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
 
-int main(void)
+void run(int flag, t_cmd *cmd)
 {
-	char input[INLEN];
-	int flag;
-	t_cmd *cmd;
+	if (flag == SIMPLECMD)
+	
+	if (flag == COMPLEXCMD)
 
-	cmd = malloc(sizeof (t_cmd)); 
-	flag = BUILTINCMD;
-	init_yosh_i();
-	
-	while (1)
-	{
-		print_prompt();
-		if (!cmd_input(input))
-			continue;
-		flag = parse_input(input, cmd);
-		run(flag, cmd);
-	}
-	free(cmd);
-	return (flag);
-	
+	free(cmd->cmds);
+	free(cmd->pipredir);
 }
