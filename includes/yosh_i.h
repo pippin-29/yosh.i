@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/17 11:15:41 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 07:02:29 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 typedef struct s_cmd
 {
 	char ***cmds;
+	char **tokens;
 	char *pipredir;
 
 } t_cmd;
@@ -46,6 +47,10 @@ typedef struct s_cmd
 /// CMD_C ///
 void	run(int flag, t_cmd *cmd);
 void	run_simplecmd(t_cmd *cmd);
+
+/// FREE_C ///
+void	free_2d(char **array);
+void	free_3d(char ***array);
 
 /// PARSE_C ///
 int		parse_input(char *input, t_cmd *cmd);
