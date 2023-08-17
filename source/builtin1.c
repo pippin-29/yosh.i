@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 09:13:15 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 09:16:44 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ int export(char **tokens)
 {
 	if (!tokens[2])
 		if (putenv(tokens[1]) == -1)
-			ft_printf("Failed");
+			ft_printf("Failed\n");
 	return (1);
 }
