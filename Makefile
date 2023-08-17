@@ -12,16 +12,13 @@ SOURCE 	:= source/*.c
 COMPILE = gcc $(FLAGS) $(SOURCE) $(LINKL) $(LIBFT_A) -o $(NAME)
 
 all:
-			$(X86) make -C $(LIBFT)
 			$(X86) $(COMPILE) $(ADDSAN)
 
 run: all
 			./$(NAME)
 clean:
-			make clean -C $(LIBFT)
-
-fclean:
-			make fclean -C $(LIBFT)
+			
+fclean: clean
 			rm -rf $(NAME)
 
 re: fclean all
