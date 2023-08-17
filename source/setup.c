@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:29:08 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/16 17:43:21 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/17 09:35:42 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	cmd_input(char *str)
 	if (ft_strlen(buffer))
 	{
 		add_history(buffer);
-		str = ft_strdup(buffer);
-		return (ft_strlen(buffer) - ft_strlen(str));
+		ft_strlcpy(str, buffer, INLEN);
+		return (ft_strlen(str));
 	} else
-		return (1);
+		return (0);
 }
 
 void print_prompt()

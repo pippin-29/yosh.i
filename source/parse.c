@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:44:20 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/17 05:28:07 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/17 09:46:58 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,36 @@
 int	parse_input(char *input, t_cmd *cmd)
 {
 	char **tokens;
-
 	tokens = ft_split(input, ' ');
 
+	cmd->pipredir = find_piperedir(tokens);
+
+	return (0);
+}
+
+char *find_piperedir(char **tokens)
+{
+	int i;
+	int j;
+	char *piperedir;
+
+	piperedir = malloc(sizeof(char) * 32);
+	i = 0;
+	j = 0;
+	while (tokens[i])
+	{
+		if (tokens[i][0] == '|' && tokens[i][1] == '\0')
+			piperedir[j++] = '|';
+		else if (tokens[i][0] == '<' && tokens[i][1] == '\0')
+			piperedir[j++] = '<';
+		else if (tokens[i][0] == '>' && tokens[i][1] == '\0')
+			piperedir[j++] = '>';
+		else if (tokens[i][0] == '>' && tokens[i][1] == '>' && tokens[i][2] == '\0')
+			piperedir[j++] = '.';
+		else if (tokens[i][0] == '<' && tokens[i][1] == '<' && tokens[i][2] == '\0')
+			piperedir[j++] = ',';
+		i++;
+	}
+	piperedir[j] = '\0';
+	return (piperedir);
 }
