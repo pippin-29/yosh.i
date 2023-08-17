@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:44:20 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 06:40:17 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 07:13:16 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	parse_input(char *input, t_cmd *cmd)
 	cmd->pipredir = find_piperedir(cmd->tokens);
 	if (cmd->pipredir[0] == '\0')
 	{
-		if (/*check_4_builtin(tokens)*/0)
+		if (check_4_builtin(cmd->tokens))
 			return (BUILTINCMD);
 		else
 			return (SIMPLECMD);
