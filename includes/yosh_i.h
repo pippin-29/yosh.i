@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 07:02:29 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 07:29:48 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_cmd
 } t_cmd;
 
 // /// BUILTIN1_C ///
-// int		check_4_builtin(char **tokens);
+int		check_4_builtin(char **tokens);
 // int		echo(char *option, char **strings);
 // int		cd(char *path);
 // int		pwd(void);
