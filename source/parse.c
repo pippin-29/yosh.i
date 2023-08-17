@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:44:20 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/17 10:06:15 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/17 10:42:10 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ int	parse_input(char *input, t_cmd *cmd)
 	if (cmd->pipredir[0] = '\0')
 	{
 		if (check_4_builtin(tokens))
-			return (0);
+			return (BUILTINCMD);
 		else
-			return (1);
+			return (SIMPLECMD);
 	}
 	else
 	{
 		// cmd->cmds = tokenise_tokens(tokens, cmd);
-		return (2);
+		return (COMPLEXCMD);
 	}
 }
 
