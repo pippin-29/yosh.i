@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 06:52:13 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 07:01:15 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 09:41:47 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_2d(char **array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (array[i])
@@ -24,7 +24,7 @@ void	free_2d(char **array)
 
 void	free_3d(char ***array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (array[i])

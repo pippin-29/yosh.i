@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:44:20 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 07:13:16 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 09:51:19 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	parse_input(char *input, t_cmd *cmd)
 {
 	cmd->tokens = ft_split(input, ' ');
-
 	cmd->pipredir = find_piperedir(cmd->tokens);
 	if (cmd->pipredir[0] == '\0')
 	{
@@ -26,22 +25,15 @@ int	parse_input(char *input, t_cmd *cmd)
 	}
 	else
 	{
-		// cmd->cmds = tokenise_tokens(tokens, cmd);
 		return (COMPLEXCMD);
 	}
 }
 
-
-// char ***tokenise_tokens(char **tokens, t_cmd *cmd)
-// {
-
-// }
-
-char *find_piperedir(char **tokens)
+char	*find_piperedir(char **tokens)
 {
-	int i;
-	int j;
-	char *piperedir;
+	int		i;
+	int		j;
+	char	*piperedir;
 
 	piperedir = malloc(sizeof(char) * 32);
 	i = 0;
@@ -54,9 +46,11 @@ char *find_piperedir(char **tokens)
 			piperedir[j++] = '<';
 		else if (tokens[i][0] == '>' && tokens[i][1] == '\0')
 			piperedir[j++] = '>';
-		else if (tokens[i][0] == '>' && tokens[i][1] == '>' && tokens[i][2] == '\0')
+		else if (tokens[i][0] == '>' && tokens[i][1] == '>' 
+			&& tokens[i][2] == '\0')
 			piperedir[j++] = '.';
-		else if (tokens[i][0] == '<' && tokens[i][1] == '<' && tokens[i][2] == '\0')
+		else if (tokens[i][0] == '<' && tokens[i][1] == '<' 
+			&& tokens[i][2] == '\0')
 			piperedir[j++] = ',';
 		i++;
 	}

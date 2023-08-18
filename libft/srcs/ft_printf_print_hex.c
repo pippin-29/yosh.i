@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_print_hex.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhadding <daniel42.c@engineer.com>         +#+  +:+       +#+        */
+/*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:37:03 by dhadding          #+#    #+#             */
-/*   Updated: 2023/04/19 11:39:32 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 09:37:19 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_put_hex(unsigned int num, const char format)
 				ft_printf_print_char(num - 10 + 'a');
 			if (format == 'X')
 				ft_printf_print_char(num - 10 + 'A');
-		}	
+		}
 	}
 }
 

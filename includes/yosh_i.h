@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 09:19:40 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 09:52:43 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,17 @@
 
 typedef struct s_cmd
 {
-	char ***cmds;
-	char **tokens;
-	char *pipredir;
-
-} t_cmd;
+	char	***cmds;
+	char	**tokens;
+	char	*pipredir;
+}	t_cmd;
 
 /// BUILTIN1_C ///
 int		check_4_builtin(char **tokens);
 int		echo(char **tokens);
 int		cd(char **tokens);
 int		pwd(void);
-int		export(char **tokens);
+int		exports(char **tokens);
 
 /// BUILTIN2_C ///
 int		unset(char **tokens);
@@ -56,8 +55,8 @@ int		parse_input(char *input, t_cmd *cmd);
 char	*find_piperedir(char **tokens);
 
 /// SETUP_C ///
-void	init_yosh_i();
+void	init_yosh_i(void);
 int		cmd_input(char *str);
-void	print_prompt();
+void	print_prompt(void);
 
-# endif
+#endif

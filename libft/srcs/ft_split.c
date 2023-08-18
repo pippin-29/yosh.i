@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhadding <daniel42.c@engineer.com>         +#+  +:+       +#+        */
+/*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 10:29:40 by dhadding          #+#    #+#             */
-/*   Updated: 2023/04/24 05:57:48 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 09:37:08 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	ft_wordcnt(char const *s, char c)
 	while (*s)
 	{
 		if (*s != c && trigger == 0)
-		{	
+		{
 			trigger = 1;
 			word_count++;
 		}
