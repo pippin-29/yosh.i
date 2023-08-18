@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 09:49:49 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/18 09:56:29 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	echo(char **tokens)
 
 int	cd(char **tokens)
 {
+	if (!tokens[1])
+		return (1);
 	if (!tokens[2])
 		chdir(tokens[1]);
 	return (1);
