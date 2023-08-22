@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 09:56:29 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/23 08:38:51 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,18 @@ int	echo(char **tokens)
 
 int	cd(char **tokens)
 {
+	char	cwd[1024];
+
+	getcwd(cwd, sizeof(cwd));
 	if (!tokens[1])
 		return (1);
 	if (!tokens[2])
+	{
+		putenv(ft_strjoin("OLDPWD=", cwd));
 		chdir(tokens[1]);
+		getcwd(cwd, sizeof(cwd));
+		putenv(ft_strjoin("PWD=", cwd));
+	}
 	return (1);
 }
 

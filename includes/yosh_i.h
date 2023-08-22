@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/22 10:14:31 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/23 08:23:42 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ char	***cmd_list(char **tokens, char *pipredir);
 
 /// RUN1_C ///
 void	run(int flag, t_cmd *cmd);
-void	run_complexcmd(t_cmd *cmd, int a, int trigger);
+// void	run_complexcmd(t_cmd *cmd, int a, int trigger);
 void	run_simplecmd(t_cmd *cmd);
 
 /// RUN2_C ///
-void	run_pipe(t_cmd *cmd, int a, int trigger);
+// void	run_pipe(t_cmd *cmd, int a, int trigger);
 // void	run_redir_from_file(t_cmd *cmd, int a, int trigger);
 // void	run_redir_to_file(t_cmd *cmd, int a, int trigger);
 // void	run_redir_to_file_append(t_cmd *cmd, int a);

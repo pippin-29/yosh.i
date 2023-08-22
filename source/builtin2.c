@@ -6,11 +6,13 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 10:18:35 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 09:49:11 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/23 08:26:03 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
+
+extern char **environ;
 
 int	unset(char **tokens)
 {
@@ -22,6 +24,13 @@ int	unset(char **tokens)
 
 int	env(void)
 {
-	system("env");
+	int	i;
+
+	i = 0;
+	while (environ[i])
+	{
+		ft_printf("%s\n", environ[i]);
+		i++;
+	}
 	return (1);
 }

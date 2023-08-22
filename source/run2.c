@@ -6,54 +6,17 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 07:59:53 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/22 12:52:39 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/23 08:22:55 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
 extern char **environ;
 
-void	run_pipe(t_cmd *cmd, int a, int trigger)
-{
-	pid_t pid;
+// void	run_pipe(t_cmd *cmd, int a, int trigger)
+// {
 	
-	
-	if (!trigger)
-	{
-		pipe(cmd->end);
-		dup2(cmd->end[1], STDOUT_FILENO);
-		close(cmd->end[0]);
-		pid = fork();
-		if (pid == 0)
-		{
-			execve(get_prog_path(cmd->cmds[a][0]), cmd->cmds[a], environ);
-			perror("execve");
-			exit(1);
-		}
-		else if (pid == -1)
-		{
-			perror("fork");
-		}
-		run_complexcmd(cmd, a, 1);
-	}
-	else
-	{
-		dup2(cmd->end[0], STDIN_FILENO);
-		close(cmd->end[1]);
-		pid = fork();
-		if (pid == 0)
-		{
-			execve(get_prog_path(cmd->cmds[a + 1][0]), cmd->cmds[a + 1], environ);
-			perror("execve");
-			exit(1);
-		}
-		else if (pid == -1)
-		{
-			perror("fork");
-		}
-		run_complexcmd(cmd, a + 1, 0);
-	}
-}
+// }
 
 // void	run_redir_from_file(t_cmd *cmd, int a, int trigger)
 // {
