@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd.c                                              :+:      :+:    :+:   */
+/*   run1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 10:38:08 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 09:51:33 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/22 10:37:25 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,22 @@ void	run(int flag, t_cmd *cmd)
 {
 	if (flag == SIMPLECMD)
 		run_simplecmd(cmd);
+	else if (flag == COMPLEXCMD)
+		run_complexcmd(cmd, 0, 0);
+}
+
+void	run_complexcmd(t_cmd *cmd, int a, int trigger)
+{
+	if (cmd->pipredir[a] == '|')
+		run_pipe(cmd, a, trigger);
+	// else if (cmd->pipredir[a] == '<' && trigger == 0)
+	// 	run_redir_from_file(cmd, a, trigger);
+	// else if (cmd->pipredir[a] == '>' && trigger == 1)
+	// 	run_redir_to_file(cmd, a, trigger);
+	// else if (cmd->pipredir[a] == '.')
+	// 	run_redir_to_file_append(cmd, a);
+	// else if (cmd->pipredir[a] == ',')
+	// 	run_redir_from_file_find(cmd, a);
 }
 
 void	run_simplecmd(t_cmd *cmd)
