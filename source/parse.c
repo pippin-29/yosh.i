@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:44:20 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 09:51:19 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/21 13:33:12 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,40 @@ int	parse_input(char *input, t_cmd *cmd)
 	}
 	else
 	{
+		cmd->cmds = cmd_list(cmd->tokens, cmd->pipredir);
 		return (COMPLEXCMD);
 	}
+}
+
+char	***cmd_list(char **tokens, char *pipredir)
+{
+	char	***cmds;
+	int		i;
+	int		a;
+	int		b;
+
+	i = 0;
+	a = 0;
+	b = 0;
+	cmds = (char ***)malloc(sizeof(char **) * (32));
+	while (tokens[i])
+	{
+		if (tokens[i][0] == pipredir[0])
+		{
+			cmds[a][b] = NULL;
+			a++;
+			i++;
+			b = 0;
+		}
+		cmds[a] = malloc(sizeof(char *) * (16));
+		cmds[a][b] = ft_strdup(tokens[i]);
+		b++;
+		i++;
+	}
+	cmds[a][b] = NULL;
+	a++;
+	cmds[a] = NULL;
+	return (cmds);
 }
 
 char	*find_piperedir(char **tokens)
