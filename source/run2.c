@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 07:59:53 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/22 11:22:35 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:52:39 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ extern char **environ;
 void	run_pipe(t_cmd *cmd, int a, int trigger)
 {
 	pid_t pid;
-	pipe(cmd->end);
+	
 	
 	if (!trigger)
 	{
+		pipe(cmd->end);
 		dup2(cmd->end[1], STDOUT_FILENO);
 		close(cmd->end[0]);
 		pid = fork();
@@ -29,11 +30,11 @@ void	run_pipe(t_cmd *cmd, int a, int trigger)
 			perror("execve");
 			exit(1);
 		}
-		else if (pid > 0)
+		else if (pid == -1)
 		{
-			run_complexcmd(cmd, a, 1);
-			
+			perror("fork");
 		}
+		run_complexcmd(cmd, a, 1);
 	}
 	else
 	{
@@ -46,11 +47,11 @@ void	run_pipe(t_cmd *cmd, int a, int trigger)
 			perror("execve");
 			exit(1);
 		}
-		else if (pid > 0)
+		else if (pid == -1)
 		{
-			run_complexcmd(cmd, a + 1, 0);
-			
+			perror("fork");
 		}
+		run_complexcmd(cmd, a + 1, 0);
 	}
 }
 
