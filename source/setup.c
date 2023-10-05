@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setup.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
+/*   By: dhadding <daniel42.c@engineer.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:29:08 by dhadding          #+#    #+#             */
-/*   Updated: 2023/08/18 09:47:30 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/10/05 13:21:11 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	cmd_input(char *str)
 {
 	char	*buffer;
 
-	buffer = readline("[🩷 > ");
+	buffer = readline("[ > ");
 	if (ft_strlen(buffer))
 	{
 		add_history(buffer);
