@@ -1,6 +1,16 @@
 ## yosh.i
 A mini shell. 42.
 
+## Installation
+
+This program is currently being developed on macOS Catalina. (If you happen to be using this, it might work).
+It works on M1 (IF!) you install a brew version of readline. The makefile will handle the rest.
+And it is quite buggy in terms of the allocated buffer on stdout. (On M1).
+
+I have no guarantee that this works on linux in any way shape or form...
+
+Type `` make run `` in latest version directory.
+
 # Current Features:
 
 command history (keys up/down)
