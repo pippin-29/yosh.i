@@ -12,7 +12,7 @@ I have no guarantee that this works on linux in any way shape or form...
 Type `` make run `` in latest version directory.
 
 This is a screen shot of yosh.i v1_04 (on M1 mac, running in Warp terminal emulator.
-![yosh.i M1 Warp][https://github.com/pippin-29/yosh.i/blob/main/Screenshot1.png?raw=true]
+![yosh.i M1 Warp](https://github.com/pippin-29/yosh.i/blob/main/Screenshot1.png?raw=true)
 
 # Current Features:
 
