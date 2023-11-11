@@ -3,6 +3,10 @@ A mini shell. 42.
 
 # Current Features:
 
+command history (keys up/down)
+
+directory autocomplete (using tab)
+
 Enviroment variable Expansion
 
 Simple command execution i.e.    `` ls -la `` ``./a.out`` ``/bin/ls -la``
@@ -31,3 +35,11 @@ Heredoc ( << EOF )
 
 Under consideration:
   -  Configuration file for prompt customisation (colours, special characters, etc.).
+
+# 1_04
+
+Primarily concerns a rejig of the current codebase, structs have been expanded where they can, and global variables have been removed if possible.
+
+Norminette styling has been mostly applied, with the exception of one function with too many lines.
+
+Also history function was extended, as now there is a save and load function at program exit/entry.
