@@ -14,7 +14,12 @@ Type `` make run `` in latest version directory.
 ## Have a look :)
 
 This is a screen shot of yosh.i v1_04 (on M1 mac, running in Warp terminal emulator.)
-![yosh.i M1 Warp](https://github.com/pippin-29/yosh.i/blob/main/Screenshot1.png?raw=true)
+Upon further inspection, a weird anomaly seems to have a appeared... the ls command seems to have been executed
+instead of changing directory to ../yosh.i_1_04/
+![Unexpected Output yosh.i M1 Warp](https://github.com/pippin-29/yosh.i/blob/main/Screenshot1.png?raw=true)
+
+Which i cannot repeat here... The integration AI in the emulator might be a possible cause. (?).
+![Expected Output yosh.i M1 Warp](https://github.com/pippin-29/yosh.i/blob/main/Screenshot3.png?raw=true)
 
 This is a screenshot of yosh.i v1_04 (on M1 mac, tunning in 'terminal' terminal emulator.)
 ![yosh.i M1 Terminal](https://github.com/pippin-29/yosh.i/blob/main/Screenshot2.png?raw=true)
