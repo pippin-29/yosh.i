@@ -16,7 +16,7 @@ Type `` make run `` in latest version directory.
 This is a screen shot of yosh.i v1_04 (on M1 mac, running in Warp terminal emulator.)
 Upon further inspection, a weird anomaly seems to have a appeared... the ls command seems to have been executed
 instead of changing directory to ../yosh.i_1_04/, even weirder still, is the inclusion of hidden files, but
-not the inclusion of . && ..    as is consistent with ls -a
+not the inclusion of . && ..    as is consistent with ls -A
 ![Unexpected Output yosh.i M1 Warp](https://github.com/pippin-29/yosh.i/blob/main/Screenshot1.png?raw=true)
 
 Which i cannot repeat here... The integration AI in the emulator might be a possible cause. (?).
