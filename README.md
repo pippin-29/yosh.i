@@ -18,6 +18,10 @@ This is a screenshot of yosh.i v1_04 (on M1 mac, running in 'terminal' terminal 
 
 # Current Features:
 
+quote handling
+
+file redirection (in, out, append and heredoc)
+
 command history (keys up/down)
 
 directory autocomplete (using tab)
@@ -40,21 +44,8 @@ prompt ``🏠uname@hname :: yosh.i_1_03 [exitstatus] 💀>`` with colours.
 
 # Future Features
 
-Complex commands i.e. `` ls -la | wc -l > file.out `` ``< file.in wc -l | cat -e ``
-
-Quote handling.
-
-Redirection in append mode. ( >> file.out )
-
-Heredoc ( << EOF )
+pipes
 
 Under consideration:
   -  Configuration file for prompt customisation (colours, special characters, etc.).
 
-# 1_04
-
-Primarily concerns a rejig of the current codebase, structs have been expanded where they can, and global variables have been removed if possible.
-
-Norminette styling has been mostly applied, with the exception of one function with too many lines.
-
-Also history function was extended, as now there is a save and load function at program exit/entry.
