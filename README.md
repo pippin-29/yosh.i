@@ -5,11 +5,12 @@ A mini shell. 42.
 
 This program is currently being developed on macOS Catalina. (If you happen to be using this, it might work).
 It works on M1 (IF!) you install a brew version of readline. The makefile will handle the rest.
-And it is quite buggy in terms of the allocated buffer on stdout. (On M1).
+
 
 I have no guarantee that this works on linux in any way shape or form...
 
-Type `` make run `` in latest version directory.
+Type `` make `` in latest version directory.
+Run with `` ./yosh.i ``
 
 ## Have a look :)
 
@@ -20,7 +21,7 @@ This is a screenshot of yosh.i v1_04 (on M1 mac, running in 'terminal' terminal 
 
 quote handling
 
-file redirection (in, out, append and heredoc)
+file redirection (in, out, append and heredoc) - in any order
 
 command history (keys up/down)
 
@@ -41,11 +42,4 @@ builtin functions similar to bash
 signal handling for ctrl-c
 
 prompt ``🏠uname@hname :: yosh.i_1_03 [exitstatus] 💀>`` with colours.
-
-# Future Features
-
-pipes
-
-Under consideration:
-  -  Configuration file for prompt customisation (colours, special characters, etc.).
 
