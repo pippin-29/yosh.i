@@ -23,6 +23,8 @@ quote handling
 
 file redirection (in, out, append and heredoc) - in any order
 
+handles a single pipe.
+
 command history (keys up/down)
 
 directory autocomplete (using tab)
