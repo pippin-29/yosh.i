@@ -8,6 +8,7 @@ It works on M1 (IF!) you install a brew version of readline. The makefile will h
 
 
 I have no guarantee that this works on linux in any way shape or form...
+I now have some guarantee this works on linux.
 
 Type `` make `` in latest version directory.
 Run with `` ./yosh.i ``
