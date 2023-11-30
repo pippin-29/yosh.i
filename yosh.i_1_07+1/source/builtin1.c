@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 10:43:34 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:02:34 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,27 +61,28 @@ int	echo(char **tokens)
 
 int	cd(char **tokens)
 {
-	char	*cwd;
+	char	cwd[INLEN];
 
-	cwd = retrv_envv("PWD");
+	getcwd(cwd, sizeof(cwd));
 	if (!tokens[1])
 	{
-		add_envv(ft_strjoin("OLDPWD=", cwd));
-		add_envv(ft_strjoin("PWD=", retrvv_cwd(retrv_envv("HOME"), cwd)));
-		chdir("$HOME");
+		cd_empty();
 	}
-	if (!tokens[2])
+	else if (!tokens[2])
 	{
-		add_envv(ft_strjoin("OLDPWD=", cwd));
-		add_envv(ft_strjoin("PWD=", retrvv_cwd(tokens[1], cwd)));
-		chdir(tokens[1]);
+		if (chdir(tokens[1]) == 0)
+		{
+			getcwd(cwd, sizeof(cwd));
+			add_envv(ft_strjoin("OLDPWD=", retrv_envv("PWD")));
+			add_envv(ft_strjoin("PWD=", cwd));
+		}
 	}
 	return (1);
 }
 
 int	pwd(void)
 {
-	char	cwd[1024];
+	char	cwd[INLEN];
 
 	getcwd(cwd, sizeof(cwd));
 	printf("%s\n", cwd);

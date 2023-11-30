@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpawson < tpawson@student.42adel.org.au    +#+  +:+       +#+        */
+/*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:52:19 by tpawson           #+#    #+#             */
-/*   Updated: 2023/11/22 01:37:30 by tpawson          ###   ########.fr       */
+/*   Updated: 2023/11/30 12:13:44 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*append_exist(char *cmp, char *s, int index)
 	res = (char *)malloc(sizeof(char) * ft_strlen(s) * INLEN);
 	while (s[index] && s[index] != ':')
 		index++;
-	tmp = getenv(cmp);
+	tmp = retrv_envv(cmp);
 	if (s[index] == ':')
 	{
 		while (tmp[j])
@@ -87,7 +87,7 @@ char	*new_str(char *s, int index, char *cmp, t_norm *norm)
 
 	norm->j = 0;
 	i = -1;
-	norm->act = getenv(cmp);
+	norm->act = retrv_envv(cmp);
 	norm->s_flag = sing_c(s, index);
 	res = (char *)malloc(sizeof(char) * (ft_strlen(s) + (INLEN * INLEN)));
 	while (++i != index)

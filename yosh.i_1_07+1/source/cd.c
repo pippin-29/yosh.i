@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tabdup.c                                        :+:      :+:    :+:   */
+/*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 03:49:34 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 12:10:44 by dhadding         ###   ########.fr       */
+/*   Created: 2023/11/30 12:29:50 by dhadding          #+#    #+#             */
+/*   Updated: 2023/11/30 14:25:22 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/yosh_i.h"
 
-#include <stdio.h>
-
-char	**ft_tabdup(char **in)
+void	cd_empty(void)
 {
-	int		i;
-	char	**out;
-
-	i = 0;
-	out = malloc (sizeof(char *) * (ft_lstlen(in) + 1));
-	if (!out)
-		return (NULL);
-	while (in[i])
+	if (chdir(retrv_envv("HOME")) == 0)
 	{
-		out[i] = ft_strdup(in[i]);
-		i++;
+		add_envv(ft_strjoin("OLDPWD=", retrv_envv("PWD")));
+		add_envv(ft_strjoin("PWD=", retrv_envv("HOME")));
 	}
-	out[i] = NULL;
-	return (out);
 }

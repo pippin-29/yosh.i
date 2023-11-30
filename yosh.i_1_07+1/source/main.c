@@ -6,13 +6,13 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:29:32 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/29 16:34:29 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:08:30 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
 
-extern char **environ;
+extern char	**environ;
 
 void	init_struct(t_cmd **cmd, t_prompt **prompt, t_norm **norm)
 {

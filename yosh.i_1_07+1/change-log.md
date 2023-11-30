@@ -46,3 +46,6 @@
  - yosh.i now works with a copy of the enviroment variables, so it does not update after a command such as `` unset PATH ``
  - new functions have been designed that allow for the working copy (**environ2) to be update through the shell.
  - adding more than one pipe in a command will result in a command abort.
+ - cd now works with empty parameters, (navigates to $HOME)
+ - applied norminette styling guide
+ - 

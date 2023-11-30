@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:44:20 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/29 15:53:01 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:08:11 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ int	parse_input(t_cmd *cmd, t_norm *norm)
 
 	tmp = NULL;
 	s = dequote_built(cmd->expanded, tmp, norm);
-	// s = invert(s, '"');
-	// s = invert(s, '\'');
 	cmd->tokens = ft_split(s, ' ');
-
 	find_pipes_redirection(cmd);
 	if (cmd->pipredir[0] == NULL)
 	{
@@ -70,7 +67,6 @@ void	find_pipes_redirection(t_cmd *cmd)
 	cmd->pipredir = malloc(sizeof(char *) * 32);
 	i = 0;
 	j = 0;
-	
 	while (cmd->tokens[i])
 	{
 		f = 0;

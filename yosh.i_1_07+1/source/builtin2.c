@@ -6,15 +6,15 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 10:18:35 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/29 16:41:04 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:27:40 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
 
-extern char	**environ2;
+extern char	**g_environ2;
 
-int	unset(char **tokens )
+int	unset(char **tokens)
 {
 	if (!tokens[2])
 		if (rm_envv(tokens[1]) == 0)
@@ -24,7 +24,7 @@ int	unset(char **tokens )
 
 int	env(void)
 {
-	print_list_2d(environ2);
+	print_list_2d(g_environ2);
 	return (1);
 }
 

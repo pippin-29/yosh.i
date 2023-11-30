@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 10:24:38 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:22:48 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ typedef struct s_norm
 }	t_norm;
 
 extern char		**environ;
-char			**environ2;
+char			**g_environ2;
 
 /// BUILTIN1_C ///
 int		check_4_builtin(char **tokens);
@@ -97,6 +97,9 @@ int		unset(char **tokens);
 void	exitshell(void);
 int		env(void);
 int		continue_w_error(char **tokens);
+
+/// CD_C ///
+void	cd_empty(void);
 
 /// ENV_C ///
 char	*get_prog_path(char *prog_name);
@@ -113,7 +116,8 @@ int		error_check_add_envv(char *envvar);
 int		update_envv(char *envvar);
 
 /// ENV3_C ///
-int envvar_len(char *envvar);
+int		envvar_len(char *envvar);
+int		envv_naming_check(char *envvar);
 
 /// EXPANDER_NORM_C ///
 char	*norm_act(char *act, char *cmp, char *s, int index);

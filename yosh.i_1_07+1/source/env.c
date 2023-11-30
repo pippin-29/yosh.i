@@ -6,28 +6,29 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 14:14:16 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 08:55:27 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:24:46 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
 
 extern char	**environ;
-extern char	**environ2;
+extern char	**g_environ2;
 
 void	copy_environ(char **env)
 {
 	int	i;
 
 	i = 0;
-	environ2 = malloc(sizeof(char *) * (ft_lstlen(env) + 1));
+	g_environ2 = malloc(sizeof(char *) * (ft_lstlen(env) + 1));
 	while (environ[i])
 	{
-		environ2[i] = strdup(env[i]);
+		g_environ2[i] = strdup(env[i]);
 		i++;
 	}
-	environ2[i] = NULL;
+	g_environ2[i] = NULL;
 }
+
 char	*get_prog_path(char *prog_name)
 {
 	char	**paths;
@@ -67,11 +68,11 @@ char	*retrv_envv(char *envvar)
 	e = 0;
 	out = NULL;
 	len = ft_strlen(envvar);
-	while (environ2[e])
+	while (g_environ2[e])
 	{
-		if (ft_strncmp(environ2[e], envvar, len) == 0)
+		if (ft_strncmp(g_environ2[e], envvar, len) == 0)
 		{
-			out = env_grab_value(environ2[e], len);
+			out = env_grab_value(g_environ2[e], len);
 			break ;
 		}
 		e++;

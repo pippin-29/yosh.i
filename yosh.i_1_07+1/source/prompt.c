@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 12:42:46 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 10:21:09 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:28:00 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	set_prompt(t_cmd *cmd, t_prompt *prompt)
 	prompt->exitstatus = ft_itoa(WEXITSTATUS(cmd->estatus));
 	prompt->prompt = malloc(INLEN);
 	prompt->cwd = retrv_envv("PWD");
+	if (ft_strcmp(prompt->cwd, retrv_envv("HOME")) == 0)
+		prompt->cwd = ft_strdup("~");
 	gethostname(prompt->hostname, sizeof (prompt->hostname));
 	prompt->username = retrv_envv("USER");
 	prompt->red = strdup("\001\e[1;31m\002");

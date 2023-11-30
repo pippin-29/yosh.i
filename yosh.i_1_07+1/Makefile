@@ -29,7 +29,8 @@ SOURCE			:= 	source/builtin1.c \
 					source/redirection.c \
 					source/run.c \
 					source/setup.c \
-					source/signal.c 
+					source/signal.c \
+					source/cd.c
 
 
 all:
