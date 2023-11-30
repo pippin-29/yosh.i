@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:44:20 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 14:08:11 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:14:28 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,84 @@ int	parse_input(t_cmd *cmd, t_norm *norm)
 {
 	char	*s;
 	char	*tmp;
+	int	*space_log;
 
 	tmp = NULL;
 	s = dequote_built(cmd->expanded, tmp, norm);
+	space_log = log_space(s);
 	cmd->tokens = ft_split(s, ' ');
 	find_pipes_redirection(cmd);
-	if (cmd->pipredir[0] == NULL)
+	// print_list_2d(cmd->tokens);
+	if (cmd->pipredir[0] == NULL && check_4_builtin(cmd->tokens))
+		return (run_builtin(cmd->tokens));
+	else if (check_4_command(cmd->tokens[0]) && cmd->pipredir[0] == NULL)
+		return (SIMPLECMD);
+	else if (cmd->pipredir[0])
+		return (COMPLEXCMD);
+	return (-1);
+}
+
+int *log_space(char *s)
+{
+	int		i;
+	bool	flips;
+	bool	flipd;
+	int		*index_log;
+	int		q;
+
+	flips = false;
+	flipd = false;
+	index_log = malloc(sizeof(int) * 128);
+	i = 0;
+	q = 0;
+	while (s[i])
 	{
-		if (check_4_builtin(cmd->tokens))
-			return (BUILTINCMD);
-		else
-			return (SIMPLECMD);
+		printf("%c\n", s[i]);
+		if (s[i] == '"')
+		{
+			flipd = !flipd;
+			s = contract_string(s, i);
+		}
+			
+		if (s[i] == '\'')
+		{
+			flips = !flips;
+			s = contract_string(s, i);
+		}
+		if (flipd || flips)
+		{
+			if (s[i] == ' ')
+			{
+				index_log[q] = i;
+				q++;
+			}	
+		}
+		i++;
 	}
-	return (COMPLEXCMD);
+	
+	return (index_log);
+}
+
+char *contract_string(char *s, int i)
+{
+	char	*out;
+	int		q;
+	int		c;
+
+	q = 0;
+	c = 0;
+	out = malloc(sizeof(char) * ft_strlen(s));
+
+	while (s[q])
+	{
+		if (q == i)
+			c++;
+		out[q] = s[c];
+		q++;
+		c++;
+	}
+	out[q] = '\0';
+	return (out);
 }
 
 int	reject_char(t_cmd *cmd, int tar)

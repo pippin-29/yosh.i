@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 14:51:52 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:14:07 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,19 +87,20 @@ char			**g_environ2;
 
 /// BUILTIN1_C ///
 int		check_4_builtin(char **tokens);
+int		run_builtin(char **tokens);
 int		echo(char **tokens);
 int		cd(char **tokens);
 int		pwd(void);
-int		exports(char **tokens);
 
 /// BUILTIN2_C ///
 int		unset(char **tokens);
 void	exitshell(void);
 int		env(void);
-int		continue_w_error(char **tokens);
-
-/// CD_C ///
 void	cd_empty(void);
+int		export(char **tokens);
+
+/// BUILTIN3_C ///
+int		echo_is_on_path();
 
 /// ENV_C ///
 char	*get_prog_path(char *prog_name);
@@ -193,5 +194,9 @@ void	sig_read_handle(t_cmd *cmd);
 void	sig_sugma(int sig, siginfo_t *info, void *context);
 void	sig_ctrls(int sig);
 void	handler(int sig, siginfo_t *info, void *context);
+
+char * contract_string(char *s, int i);
+int *log_space(char *s);
+
 
 #endif

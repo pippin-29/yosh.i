@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   builtin3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 12:29:50 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 14:25:22 by dhadding         ###   ########.fr       */
+/*   Created: 2023/12/01 09:23:50 by dhadding          #+#    #+#             */
+/*   Updated: 2023/12/01 09:25:24 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
 
-void	cd_empty(void)
+int	echo_is_on_path()
 {
-	if (chdir(retrv_envv("HOME")) == 0)
-	{
-		add_envv(ft_strjoin("OLDPWD=", retrv_envv("PWD")));
-		add_envv(ft_strjoin("PWD=", retrv_envv("HOME")));
-	}
+	if (access(get_prog_path("echo"), F_OK) == 0)
+		return (1);
+	return (0);
 }

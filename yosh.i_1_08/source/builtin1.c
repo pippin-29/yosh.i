@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 14:02:34 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 09:23:03 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,35 @@ int	check_4_builtin(char **tokens)
 	if (ft_strcmp(tokens[0], "exit") == 0)
 		exitshell();
 	else if (ft_strcmp(tokens[0], "cd") == 0)
+		return (1);
+	else if (ft_strcmp(tokens[0], "pwd") == 0)
+		return (1);
+	else if (ft_strcmp(tokens[0], "export") == 0)
+		return (1);
+	else if (ft_strcmp(tokens[0], "unset") == 0)
+		return (1);
+	else if (ft_strcmp(tokens[0], "env") == 0)
+		return (1);
+	else if (ft_strcmp(tokens[0], "echo") == 0)
+		return (1);
+	return (0);
+}
+
+int run_builtin(char **tokens)
+{
+	if (ft_strcmp(tokens[0], "cd") == 0)
 		return (cd(tokens));
 	else if (ft_strcmp(tokens[0], "pwd") == 0)
 		return (pwd());
 	else if (ft_strcmp(tokens[0], "export") == 0)
-		return (exports(tokens));
+		return (export(tokens));
 	else if (ft_strcmp(tokens[0], "unset") == 0)
 		return (unset(tokens));
 	else if (ft_strcmp(tokens[0], "env") == 0)
 		return (env());
 	else if (ft_strcmp(tokens[0], "echo") == 0)
 		return (echo(tokens));
-	else if (ft_strcmp(tokens[0], "continue") == 0)
-		return (continue_w_error(tokens));
-	return (0);
+	return (BUILTINCMD);
 }
 
 int	echo(char **tokens)
@@ -40,7 +55,7 @@ int	echo(char **tokens)
 
 	i = 1;
 	flag = 0;
-	if (!tokens[1])
+	if (!tokens[1] || echo_is_on_path())
 		return (1);
 	if (ft_strcmp(tokens[1], "-n") == 0)
 	{
@@ -86,13 +101,5 @@ int	pwd(void)
 
 	getcwd(cwd, sizeof(cwd));
 	printf("%s\n", cwd);
-	return (1);
-}
-
-int	exports(char **tokens)
-{
-	if (!tokens[2])
-		if (add_envv(tokens[1]) == -1)
-			printf("Failed\n");
 	return (1);
 }

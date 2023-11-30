@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 10:18:35 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 14:27:40 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 08:39:39 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,19 @@ void	exitshell(void)
 	exit(0);
 }
 
-int	continue_w_error(char **tokens)
+void	cd_empty(void)
 {
-	if (tokens[1] && ft_strcmp(tokens[1], "unclosed") == 0)
+	if (chdir(retrv_envv("HOME")) == 0)
 	{
-		printf("Quotes must be closed\n");
-		return (1);
+		add_envv(ft_strjoin("OLDPWD=", retrv_envv("PWD")));
+		add_envv(ft_strjoin("PWD=", retrv_envv("HOME")));
 	}
-	else
-		return (1);
+}
+
+int	export(char **tokens)
+{
+	if (!tokens[2])
+		if (add_envv(tokens[1]) == -1)
+			printf("Failed\n");
+	return (1);
 }

@@ -11,6 +11,7 @@ FLAGS			:= -Wextra -Werror -Wall
 ADDSAN			:= -g -fsanitize=address
 SOURCE			:= 	source/builtin1.c \
 					source/builtin2.c \
+					source/builtin3.c \
 					source/env.c \
 					source/env2.c \
 					source/env3.c \
@@ -29,8 +30,7 @@ SOURCE			:= 	source/builtin1.c \
 					source/redirection.c \
 					source/run.c \
 					source/setup.c \
-					source/signal.c \
-					source/cd.c
+					source/signal.c 
 
 
 all:
