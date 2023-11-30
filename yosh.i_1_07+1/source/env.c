@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 14:14:16 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/29 16:33:38 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 08:55:27 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*retrv_envv(char *envvar)
 	e = 0;
 	out = NULL;
 	len = ft_strlen(envvar);
-	while (environ[e])
+	while (environ2[e])
 	{
 		if (ft_strncmp(environ2[e], envvar, len) == 0)
 		{

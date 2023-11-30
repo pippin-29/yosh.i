@@ -40,8 +40,4 @@
  # 1.07+
  - single pipes have been introduced.
 
- # 1.07+1 (Post Evaluation)
- - single and double quotes surrounding executable code is no longer executed.
-	as was present in an earlier version
- - Headway has been made creating functions that update a copy of environ,
-	as opposed to directly updating **environ.
+ 

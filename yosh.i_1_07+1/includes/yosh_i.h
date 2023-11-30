@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/29 16:34:41 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 10:24:38 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_prompt
 	char	*prompt;
 	char	*username;
 	char	hostname[128];
-	char	cwd[1024];
+	char	*cwd;
 	char	*exitstatus;
 	char	*out;
 	char	*green;
@@ -107,7 +107,13 @@ void	copy_environ(char **env);
 
 /// ENV2_C ///
 int		rm_envv(char *envvar);
-int		contract_2d_char(char **tda, int index);
+int		contract_env(char **tda, int index);
+int		add_envv(char *envvar);
+int		error_check_add_envv(char *envvar);
+int		update_envv(char *envvar);
+
+/// ENV3_C ///
+int envvar_len(char *envvar);
 
 /// EXPANDER_NORM_C ///
 char	*norm_act(char *act, char *cmp, char *s, int index);

@@ -12,6 +12,8 @@ ADDSAN			:= -g -fsanitize=address
 SOURCE			:= 	source/builtin1.c \
 					source/builtin2.c \
 					source/env.c \
+					source/env2.c \
+					source/env3.c \
 					source/expander_norm.c \
 					source/expander.c \
 					source/free.c \
@@ -27,7 +29,7 @@ SOURCE			:= 	source/builtin1.c \
 					source/redirection.c \
 					source/run.c \
 					source/setup.c \
-					source/signal.c
+					source/signal.c 
 
 all:
 			echo COMPILING... PLEASE STAND BY.

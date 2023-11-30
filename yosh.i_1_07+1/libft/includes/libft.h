@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:40:00 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/20 07:48:55 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 09:18:43 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 size_t	ft_lstlen(char **list);
-char	**ft_tabcpy(char **in, char **out);
+
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -117,5 +117,6 @@ char	*strjoin_e(unsigned int c, ...);
 void	*malloc_strlen_n(unsigned int c, va_list arg);
 bool	is_whitespace(char *s);
 int		ft_strcmp(char *s1, char *s2);
+char	**ft_tabdup(char **in);
 
 #endif

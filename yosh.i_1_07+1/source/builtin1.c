@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/28 10:30:53 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 10:43:34 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,20 @@ int	echo(char **tokens)
 
 int	cd(char **tokens)
 {
-	char	cwd[1024];
+	char	*cwd;
 
-	getcwd(cwd, sizeof(cwd));
+	cwd = retrv_envv("PWD");
 	if (!tokens[1])
-		return (1);
+	{
+		add_envv(ft_strjoin("OLDPWD=", cwd));
+		add_envv(ft_strjoin("PWD=", retrvv_cwd(retrv_envv("HOME"), cwd)));
+		chdir("$HOME");
+	}
 	if (!tokens[2])
 	{
-		putenv(ft_strjoin("OLDPWD=", cwd));
+		add_envv(ft_strjoin("OLDPWD=", cwd));
+		add_envv(ft_strjoin("PWD=", retrvv_cwd(tokens[1], cwd)));
 		chdir(tokens[1]);
-		getcwd(cwd, sizeof(cwd));
-		putenv(ft_strjoin("PWD=", cwd));
 	}
 	return (1);
 }
@@ -88,7 +91,7 @@ int	pwd(void)
 int	exports(char **tokens)
 {
 	if (!tokens[2])
-		if (putenv(tokens[1]) == -1)
+		if (add_envv(tokens[1]) == -1)
 			printf("Failed\n");
 	return (1);
 }

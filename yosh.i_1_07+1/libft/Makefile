@@ -62,7 +62,7 @@ SOURCE = \
 		srcs/ft_printf.c \
 		srcs/ft_strndup.c \
 		srcs/ft_lstlen.c \
-		srcs/ft_tabcpy.c \
+		srcs/ft_tabdup.c 
 
 OBJECT = $(SOURCE:%.c=%.o)
 

@@ -26,7 +26,7 @@
  - signals now exit blocking functions, but dont exit shell.
 
  # 1.06
- - redirections seem to mostly work, i.e "cat < in > out" , "cat < in >> out", "cat in > out" (still more to test).
+ - redirections seem to mostly work, i.e `` cat < in > out `` , `` cat < in >> out `` , `` cat in > out `` (still more to test).
  - pipes are on their way
  - list of tokens is now being interpreted one command block at a time, whilst redirections are completed ahead of execution time.
 
@@ -39,3 +39,10 @@
 
  # 1.07+
  - pipe is implemented.
+
+# 1.07+1 (Post Evaluation)
+ - single and double quotes surrounding executable code is no longer executed.
+	as was present in an earlier version
+ - yosh.i now works with a copy of the enviroment variables, so it does not update after a command such as `` unset PATH ``
+ - new functions have been designed that allow for the working copy (**environ2) to be update through the shell.
+ - adding more than one pipe in a command will result in a command abort.
