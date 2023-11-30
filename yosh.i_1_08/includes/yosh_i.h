@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 14:22:48 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:48:49 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_cmd
 	int		fd_from_pipe;
 	int		pump;
 	int		run;
+	char	*history;
 }	t_cmd;
 
 typedef struct s_prompt
