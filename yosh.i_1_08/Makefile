@@ -56,6 +56,6 @@ re: fclean all
 # libft is recompiled to facilitate movement between x86_64 intel and M1 Apple
 
 # 
-# make -C $(LIBFT)
+# 
 
 # 
