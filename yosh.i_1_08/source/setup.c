@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:29:08 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 20:40:48 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/11/30 20:43:02 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	check_4_semi_bslash(char *check)
 int	cmd_input(t_cmd *cmd, t_prompt *prompt)
 {
 	char	*buffer;
+
 
 	cmd->rl_yn = 1;
 	sig_read_handle(cmd);
