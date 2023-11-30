@@ -1,13 +1,13 @@
 ## Changes
 
-# 1.01
+ # 1.01
  - added skull in readline prompt. (setup.c)
  - expanded error handling in run_simplecmd(), including bad command (specified as error code 2: no file or directory) (run.c)
  - created function retrv_envv() which is designed to replace the getenv() function. (env.c) (builtin1.c)
  - assigned enviroment variable is retrieved by env_grab_value
 
 
-# 1.02 - 1.04
+ # 1.02 - 1.04
  - added load_history
  - added save_history
  - applied norminette style guide conventions
@@ -40,7 +40,7 @@
  # 1.07+
  - pipe is implemented.
 
-# 1.07+1 (Post Evaluation)
+ # 1.08 (Post Evaluation)
  - single and double quotes surrounding executable code is no longer executed.
 	as was present in an earlier version
  - yosh.i now works with a copy of the enviroment variables, so it does not update after a command such as `` unset PATH ``
@@ -48,4 +48,3 @@
  - adding more than one pipe in a command will result in a command abort.
  - cd now works with empty parameters, (navigates to $HOME)
  - applied norminette styling guide
- - 
