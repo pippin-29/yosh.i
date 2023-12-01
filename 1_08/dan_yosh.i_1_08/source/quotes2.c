@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:07:31 by tpawson           #+#    #+#             */
-/*   Updated: 2023/12/01 13:37:21 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:22:59 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*dequote_str(char *s)
 {
-	char *res;
-	int	i;
-	int j;
+	char	*res;
+	int		i;
+	int		j;
 
 	res = (char *)malloc(sizeof(char) * (ft_strlen(s) + (INLEN * INLEN)));
 	i = 0;
@@ -28,6 +28,5 @@ char	*dequote_str(char *s)
 		res[j++] = s[i++];
 	}
 	res[j] = '\0';
-	// printf("%s", res);
 	return (res);
 }

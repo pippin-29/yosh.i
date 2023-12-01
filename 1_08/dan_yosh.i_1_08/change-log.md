@@ -48,3 +48,11 @@
  - adding more than one pipe in a command will result in a command abort.
  - cd now works with empty parameters, (navigates to $HOME)
  - applied norminette styling guide
+
+ - redirection has been assigned precedence order for duplicates of IO.
+ - if a pipe has been used it will accept input and output regardless of redirections imposed.
+ - quotes have been removed from input, such that `` echo 'echo' `` will output `` echo `` instead of `` 'echo' ``
+ - files are now being created in user directory, including history and temp files.
+ - makefile installs to a specific location `` $HOME/bin ``
+ - echo (with no parameters) now prints a newline unless specified with -n, like so `` echo -n ``
+ 

@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:29:32 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 13:55:01 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:25:31 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	main(void)
 	copy_environ(environ);
 	init_struct(&cmd, &prompt, &norm);
 	load_history();
-	// read_yoshrc(cmd, norm);
 	entry_message();
 	while (1)
 	{
@@ -44,7 +43,5 @@ int	main(void)
 		cmd->flag = parse_input(cmd, norm);
 		if (cmd->flag > 0)
 			run(cmd);
-		else if (cmd->flag == -1)
-			printf("Builtins Cannot Be Interpreted In Conjunction With Redirections\n");
 	}
 }

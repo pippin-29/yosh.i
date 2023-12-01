@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 13:54:27 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:39:03 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,15 @@ typedef struct s_cmd
 	int		fd_here;
 	int		rl_yn;
 	int		pipe_c;
-	int		pipe_copy;
 	int		no_command;
 	int		fd_to_pipe;
 	int		fd_from_pipe;
 	int		pump;
 	int		run;
+	int		io_dup_out;
+	int		io_dup_in;
+	int		io_cross_out;
+	int		io_cross_in;
 }	t_cmd;
 
 typedef struct s_prompt
@@ -96,7 +99,7 @@ int		unset(char **tokens);
 void	exitshell(void);
 int		env(void);
 void	cd_empty(void);
-int		export(char **tokens);
+int		exports(char **tokens);
 
 /// BUILTIN3_C ///
 int		echo_is_on_path();

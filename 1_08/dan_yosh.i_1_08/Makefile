@@ -32,7 +32,7 @@ SOURCE			:= 	source/builtin1.c \
 					source/run.c \
 					source/setup.c \
 					source/signal.c \
-					# source/yoshrc.c
+
 
 
 all:
@@ -57,8 +57,3 @@ re: fclean all
 
 # All command invocation has been silenced.
 # libft is recompiled to facilitate movement between x86_64 intel and M1 Apple
-
-# 
-# 
-
-# 

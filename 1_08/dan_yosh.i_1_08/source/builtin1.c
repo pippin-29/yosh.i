@@ -6,13 +6,13 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 13:57:38 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:39:15 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
 
-int run_builtin(char **tokens)
+int	run_builtin(char **tokens)
 {
 	if (ft_strcmp(tokens[0], "exit") == 0)
 		exitshell();
@@ -21,7 +21,7 @@ int run_builtin(char **tokens)
 	else if (ft_strcmp(tokens[0], "pwd") == 0)
 		return (pwd());
 	else if (ft_strcmp(tokens[0], "export") == 0)
-		return (export(tokens));
+		return (exports(tokens));
 	else if (ft_strcmp(tokens[0], "unset") == 0)
 		return (unset(tokens));
 	else if (ft_strcmp(tokens[0], "env") == 0)

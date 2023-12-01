@@ -73,9 +73,9 @@ all: $(NAME)
 
 $(NAME):	$(OBJECT)
 					ar rc  $(NAME) $(OBJECT)
-clean:				
+clean:			
 					rm -f $(OBJECT)
-fclean:		clean	
+fclean:	clean
 					rm -f $(NAME)
 
-re:			fclean all
+re:			fclean all clean

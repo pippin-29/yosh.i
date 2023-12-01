@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:20:13 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/29 11:33:55 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:22:04 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int	redirection(t_cmd *cmd, int i)
 
 	q = i;
 	ret = 0;
+	cmd->io_dup_in = 0;
+	cmd->io_dup_out = 0;
+	cmd->io_cross_in = 0;
 	while (cmd->tokens[q] != NULL)
 	{
 		if (cmd->pump == 0)
