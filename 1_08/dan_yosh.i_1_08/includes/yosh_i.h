@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 15:39:03 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:45:30 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ int		update_envv(char *envvar);
 /// ENV3_C ///
 int		envvar_len(char *envvar);
 int		envv_naming_check(char *envvar);
+void	set_envvars();
 
 /// EXPANDER_NORM_C ///
 char	*norm_act(char *act, char *cmp, char *s, int index);

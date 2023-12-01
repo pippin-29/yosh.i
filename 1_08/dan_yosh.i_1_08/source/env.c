@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 14:14:16 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 12:55:27 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:45:38 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	copy_environ(char **env)
 		i++;
 	}
 	g_environ2[i] = NULL;
+	set_envvars();
 }
 
 char	*get_prog_path(char *prog_name)

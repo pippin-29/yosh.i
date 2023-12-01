@@ -6,11 +6,13 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:06:55 by dhadding          #+#    #+#             */
-/*   Updated: 2023/11/30 14:24:23 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:54:37 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
+
+extern char	**g_environ2;
 
 int	envvar_len(char *envvar)
 {
@@ -35,4 +37,20 @@ int	envv_naming_check(char *envvar)
 		i++;
 	}
 	return (0);
+}
+
+void	set_envvars()
+{
+	int shlvl;
+
+	shlvl = 0;
+	add_envv("SHEll=$HOME/bin/yosh.i");
+	if (retrv_envv("SHLVL")[0] == '\0')
+		add_envv("SHLVL=1");
+	else
+	{ //////////
+		shlvl = ft_atoi(retrv_envv("SHLVL"));
+		shlvl++;
+		add_envv(ft_strjoin("SHLVL=", ft_itoa(shlvl)));
+	}
 }
