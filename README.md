@@ -8,10 +8,22 @@ It works on M1 (IF!) you install a brew version of readline. The makefile will h
 
 
 I have no guarantee that this works on linux in any way shape or form...
-I now have some guarantee this works on linux.
+I now have some guarantee this works on linux. (Since the evaluation of 1.07 at school)
 
 Type `` make `` in latest version directory.
-Run with `` ./yosh.i ``
+
+This will create a directory in `` $HOME/bin ``
+
+Append `` .bashrc `` or `` .zshrc `` file with `` export PATH=$PATH:$HOME/bin ``
+
+Run from shell with `` yosh.i `` command.
+
+Running the program will also create 1-3 files in user directory.
+These are `` .yosh_history `` , `` .to-pipe `` & `` .temporary_heredoc ``
+
+The two latter files are deleted upon typing the `` exit `` command.
+
+Most terminals can also be pointed to an executable of choice, for immediate startup of shell upon window creation.
 
 ## Have a look :)
 
