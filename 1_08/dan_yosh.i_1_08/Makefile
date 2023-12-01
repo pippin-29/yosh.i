@@ -12,7 +12,6 @@ INSTALL_LOC		:= ~/bin
 NAME			:= $(INSTALL_LOC)/yosh.i
 SOURCE			:= 	source/builtin1.c \
 					source/builtin2.c \
-
 					source/env.c \
 					source/env2.c \
 					source/env3.c \
@@ -42,7 +41,7 @@ all:
 			gcc -o $(NAME) $(FLAGS) $(SOURCE) $(LIBFT_A) $(INCLUDES_PATH) $(LINK_PATH) $(LINK_LIB) $(ADDSAN) 
 			make clean -C $(LIBFT)
 run: all
-			./$(NAME)
+			yosh.i
 clean:
 			
 fclean: clean

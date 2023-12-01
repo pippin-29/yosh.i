@@ -6,29 +6,11 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 13:11:40 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:17:46 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
-
-// int	check_4_builtin(char **tokens)
-// {
-	
-// 	else if (ft_strcmp(tokens[0], "cd") == 0)
-// 		return (1);
-// 	else if (ft_strcmp(tokens[0], "pwd") == 0)
-// 		return (1);
-// 	else if (ft_strcmp(tokens[0], "export") == 0)
-// 		return (1);
-// 	else if (ft_strcmp(tokens[0], "unset") == 0)
-// 		return (1);
-// 	else if (ft_strcmp(tokens[0], "env") == 0)
-// 		return (1);
-// 	else if (ft_strcmp(tokens[0], "echo") == 0)
-// 		return (1);
-// 	return (0);
-// }
 
 int run_builtin(char **tokens)
 {
@@ -56,8 +38,8 @@ int	echo(char **tokens)
 
 	i = 1;
 	flag = 0;
-	if (!tokens[1] /*|| is_prog_on_path("echo")*/)
-		return (1);
+	if (!tokens[1])
+		return (printf("\n"));
 	if (ft_strcmp(tokens[1], "-n") == 0)
 	{
 		i = 2;

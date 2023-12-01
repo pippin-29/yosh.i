@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 08:09:33 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 08:25:18 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:20:28 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	in_here(t_cmd *cmd, int i)
 	cmd->fd_stdin = dup(STDIN_FILENO);
 	cmd->here_prompt = strdup("writenow > ");
 	cmd->here_eof = strdup(cmd->tokens[i + 1]);
-	cmd->fd_here = open(".temporary_heredoc", O_CREAT | O_RDWR | O_TRUNC, 0760);
+	cmd->fd_here = open(ft_strjoin(retrv_envv("HOME"), "/.temporary_heredoc"), O_CREAT | O_RDWR | O_TRUNC, 0760);
 	if (cmd->fd_here == -1)
 		perror("Error: INFILE OPEN");
 	write_2_fd_here(cmd);
