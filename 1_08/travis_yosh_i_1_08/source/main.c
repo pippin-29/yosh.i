@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
+/*   By: tpawson < tpawson@student.42adel.org.au    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:29:32 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 08:37:46 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:33:39 by tpawson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(void)
 			continue ;
 		cmd->expanded = (char *)malloc(sizeof(char) * INLEN);
 		cmd->expanded = expander(cmd->input, norm);
+		cmd->expanded = dequote_str(cmd->expanded);
 		cmd->flag = parse_input(cmd, norm);
 		if (cmd->flag > 0)
 			run(cmd);

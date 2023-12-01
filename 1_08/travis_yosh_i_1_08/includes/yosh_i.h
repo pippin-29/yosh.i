@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   yosh_i.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
+/*   By: tpawson < tpawson@student.42adel.org.au    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 11:28:00 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:13:47 by tpawson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,9 @@ void	store_prompt(t_prompt *prompt);
 int		sing_c(char *s, int index);
 int		doub_c(char *s, int index);
 char	*dequote_built(char *s, char *tmp, t_norm *norm);
+
+/// QUOTES2_C ///
+char	*dequote_str(char *s);
 
 /// REDIRECTION_C ///
 int		redirection(t_cmd *cmd, int i);

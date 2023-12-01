@@ -6,7 +6,7 @@
 /*   By: tpawson < tpawson@student.42adel.org.au    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 01:42:35 by tpawson           #+#    #+#             */
-/*   Updated: 2023/11/22 02:49:31 by tpawson          ###   ########.fr       */
+/*   Updated: 2023/12/01 12:38:33 by tpawson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,6 @@ char	*dequote_built(char *s, char *tmp, t_norm *n)
 			n->act[n->j++] = s[i++];
 	n->act[n->j] = '\0';
 	tmp = built_err(n->act, s);
+	printf("%s", tmp);
 	return (tmp);
 }
