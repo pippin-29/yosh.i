@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 10:18:35 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 08:39:39 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:00:19 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	env(void)
 
 void	exitshell(void)
 {
-	unlink(".temporary_heredoc");
-	unlink(".to-pipe");
+	unlink(ft_strjoin(retrv_envv("HOME"), "/.temporary_heredoc"));
+	unlink(ft_strjoin(retrv_envv("HOME"), "/.to-pipe"));
 	save_history();
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 13:10:20 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:54:27 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,9 @@ int		sing_c(char *s, int index);
 int		doub_c(char *s, int index);
 char	*dequote_built(char *s, char *tmp, t_norm *norm);
 
+/// QUOTES2_C ///
+char	*dequote_str(char *s);
+
 /// REDIRECTION_C ///
 int		redirection(t_cmd *cmd, int i);
 void	reset_io(t_cmd *cmd);
@@ -194,8 +197,9 @@ void	sig_sugma(int sig, siginfo_t *info, void *context);
 void	sig_ctrls(int sig);
 void	handler(int sig, siginfo_t *info, void *context);
 
-// char * contract_string(char *s, int i);
-// int *log_space(char *s);
+/// YOSHRC_C ///
+// int		read_yoshrc(t_cmd *cmd, t_norm *norm);
+// int		line_valid(char *input_line);
 
 
 #endif

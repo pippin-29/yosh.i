@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 05:17:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/01 13:17:46 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:57:38 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ int	cd(char **tokens)
 	char	cwd[INLEN];
 
 	getcwd(cwd, sizeof(cwd));
-	// if (is_prog_on_path("cd"))
-	// 	return (1);
 	if (!tokens[1])
 		cd_empty();
 	else if (!tokens[2])

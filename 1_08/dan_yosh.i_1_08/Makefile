@@ -27,10 +27,12 @@ SOURCE			:= 	source/builtin1.c \
 					source/print.c \
 					source/prompt.c \
 					source/quotes.c \
+					source/quotes2.c \
 					source/redirection.c \
 					source/run.c \
 					source/setup.c \
-					source/signal.c 
+					source/signal.c \
+					# source/yoshrc.c
 
 
 all:
