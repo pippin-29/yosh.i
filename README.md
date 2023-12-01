@@ -34,7 +34,7 @@ This is a screenshot of yosh.i v1_04 (on M1 mac, running in 'terminal' terminal 
 
 quote handling
 
-file redirection (in, out, append and heredoc) - in any order
+file redirection
 
 handles a single pipe.
 
