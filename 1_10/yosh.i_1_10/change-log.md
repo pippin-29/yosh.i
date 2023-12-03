@@ -64,3 +64,5 @@
  # 1.10
  - Global variables removed (environ and the copy);
  - cmd struct passed into all functions that used the global variable.
+ - Quotes handle correctly, are removed and tokenise input whilst preserving spaces.
+ - 

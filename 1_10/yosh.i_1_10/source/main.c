@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
+/*   By: tpawson < tpawson@student.42adel.org.au    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:29:32 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/03 13:28:36 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/03 15:57:55 by tpawson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	init_struct(t_cmd **cmd, t_prompt **prompt, t_norm **norm)
 {
 	*prompt = malloc(sizeof(t_prompt));
 	*cmd = malloc(sizeof(t_cmd));
+	(*cmd)->n = malloc(sizeof(t_norm));
 	*norm = malloc(sizeof(t_norm));
 	(*cmd)->flag = BUILTINCMD;
 	(*cmd)->estatus = 0;
@@ -38,8 +39,7 @@ int	main(int argc, char **argv, char **envp)
 		if (!cmd_input(cmd, prompt))
 			continue ;
 		cmd->expanded = (char *)malloc(sizeof(char) * INLEN);
-		cmd->expanded = expander(cmd->input, norm, cmd);
-		cmd->expanded = dequote_str(cmd->expanded);
+		cmd->expanded = expander(cmd->input, cmd);
 		cmd->flag = parse_input(cmd, norm);
 		if (cmd->flag > 0)
 			run(cmd);

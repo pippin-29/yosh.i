@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
+/*   By: tpawson < tpawson@student.42adel.org.au    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:52:19 by tpawson           #+#    #+#             */
-/*   Updated: 2023/12/03 13:32:42 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:06:31 by tpawson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/yosh_i.h"
 
 #include "../includes/yosh_i.h"
 
@@ -80,24 +78,24 @@ char	*append_exist(char *cmp, char *s, int index, t_cmd *cmd)
 	return (tmp);
 }
 
-char	*new_str(char *s, int index, char *cmp, t_norm *norm, t_cmd *cmd)
+char	*new_str(char *s, int index, char *cmp, t_cmd *c)
 {
 	int		i;
 	char	*res;
 
-	norm->j = 0;
+	c->n->j = 0;
 	i = -1;
-	norm->act = retrv_envv(cmp, cmd);
-	norm->s_flag = sing_c(s, index);
+	c->n->act = retrv_envv(cmp, c);
+	c->n->s_flag = sing_c(s, index);
 	res = (char *)malloc(sizeof(char) * (ft_strlen(s) + (INLEN * INLEN)));
 	while (++i != index)
 		res[i] = s[i];
-	norm->tmp = norm->act;
-	norm->act = norm_act(norm->tmp, cmp, s, index, cmd);
-	if (norm->act && norm->s_flag == 0)
-		while (norm->act[norm->j])
-			res[i++] = norm->act[norm->j++];
-	else if (norm->s_flag == 1)
+	c->n->tmp = c->n->act;
+	c->n->act = norm_act(cmp, s, index, c);
+	if (c->n->act && c->n->s_flag == 0)
+		while (c->n->act[c->n->j])
+			res[i++] = c->n->act[c->n->j++];
+	else if (c->n->s_flag == 1)
 		while (s[index] && s[index] != '/' && s[index] != ' ')
 			res[i++] = s[index++];
 	while (s[index] && s[index] != '/' && s[index] != ' '
@@ -109,7 +107,7 @@ char	*new_str(char *s, int index, char *cmp, t_norm *norm, t_cmd *cmd)
 	return (res);
 }
 
-char	*expander(char *s, t_norm *norm, t_cmd *cmd)
+char	*expander(char *s, t_cmd *cmd)
 {
 	char	*cmp;
 	char	*tmp;
@@ -130,7 +128,7 @@ char	*expander(char *s, t_norm *norm, t_cmd *cmd)
 				&& s[i] != '"' && s[i] != '\'')
 				cmp[j++] = s[i++];
 			cmp[j] = '\0';
-			tmp = new_str(s, index, cmp, norm, cmd);
+			tmp = new_str(s, index, cmp, cmd);
 			s = tmp;
 			free(cmp);
 		}

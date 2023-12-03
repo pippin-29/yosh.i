@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 08:09:33 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/03 13:12:06 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/03 14:56:39 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	in_here(t_cmd *cmd, int i)
 void	write_2_fd_here(t_cmd *cmd)
 {
 	cmd->here_buffer = malloc(1);
-	sig_read_handle(cmd);
 	while (strcmp(cmd->here_buffer, cmd->here_eof) != 0)
 	{
 		cmd->here_buffer = readline(cmd->here_prompt);

@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:44:20 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/03 13:28:02 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/03 14:44:30 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	parse_input(t_cmd *cmd, t_norm *norm)
 	s = dequote_built(cmd->expanded, tmp, norm);
 	cmd->tokens = ft_split(s, ' ');
 	find_pipes_redirection(cmd);
+	cmd->tokens = ft_mini_split(s, ' ', norm);
 	if (cmd->pipredir[0] == NULL)
 	{
 		if (run_builtin(cmd))

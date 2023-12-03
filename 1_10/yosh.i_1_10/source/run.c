@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 10:38:08 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/03 13:36:20 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/03 15:36:52 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	run_complexcmd(t_cmd *cmd)
 	reset_io(cmd);
 	if (WIFEXITED(cmd->estatus))
 		printf("\nChild process exited normally.\n");
+	cmd->io_cross_in = 0;
 }
 
 void	runr(t_cmd *cmd)

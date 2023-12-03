@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   yosh_i.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
+/*   By: tpawson < tpawson@student.42adel.org.au    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 10:31:51 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/03 13:38:42 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:07:36 by tpawson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,20 @@
 # include <signal.h>
 # include <stdlib.h>
 # include "yosh_macros.h"
+
+typedef struct s_norm
+{
+	char	*act;
+	char	*tmp;
+	char	**environ;
+	int		s_flag;
+	int		j;
+	int		i;
+	int		qcheck;
+	size_t	ii;
+	size_t	jj;
+	size_t	k;
+}	t_norm;
 
 typedef struct s_cmd
 {
@@ -60,6 +74,7 @@ typedef struct s_cmd
 	int		io_dup_in;
 	int		io_cross_out;
 	int		io_cross_in;
+	t_norm	*n;
 }	t_cmd;
 
 typedef struct s_prompt
@@ -75,16 +90,6 @@ typedef struct s_prompt
 	char	*red;
 	char	*white;
 }	t_prompt;
-
-typedef struct s_norm
-{
-	char	*act;
-	char	*tmp;
-	int		s_flag;
-	int		j;
-	int		i;
-	int		qcheck;
-}	t_norm;
 
 /// BUILTIN1_C ///
 int		run_builtin(t_cmd *cmd);
@@ -108,7 +113,7 @@ void	copy_environ(char **envp, t_cmd *cmd);
 
 /// ENV2_C ///
 int		rm_envv(char *envvar, t_cmd *cmd);
-int		contract_env(char **tda, int index, t_cmd *cmd);
+int		contract_env(int index, t_cmd *cmd);
 int		add_envv(char *envvar, t_cmd *cmd);
 int		error_check_add_envv(char *envvar);
 int		update_envv(char *envvar, t_cmd *cmd);
@@ -119,13 +124,13 @@ int		envv_naming_check(char *envvar);
 void	set_envvars(t_cmd *cmd);
 
 /// EXPANDER_NORM_C ///
-char	*norm_act(char *act, char *cmp, char *s, int index, t_cmd *cmd);
+char	*norm_act(char *cmp, char *s, int index, t_cmd *c);
 
 /// EXPANDER_C ///
 char	*append_init(char *cmp, char *s, int index);
-char	*append_exist(char *cmp, char *s, int index, t_cmd *cmd);
-char	*new_str(char *s, int index, char *cmp, t_norm *norm, t_cmd *cmd);
-char	*expander(char *s, t_norm *norm, t_cmd *cmd);
+char	*append_exist(char *cmp, char *s, int index, t_cmd *c);
+char	*new_str(char *s, int index, char *cmp, t_cmd *c);
+char	*expander(char *s, t_cmd *cmd);
 
 /// FILE_C ///
 int		is_valid_filename(char *input);
@@ -174,6 +179,8 @@ char	*dequote_built(char *s, char *tmp, t_norm *norm);
 
 /// QUOTES2_C ///
 char	*dequote_str(char *s);
+char	*strndup_no_quotes(const char *s, size_t n);
+char	**ft_mini_split(char const *s, char c, t_norm *n);
 
 /// REDIRECTION_C ///
 int		redirection(t_cmd *cmd, int i);

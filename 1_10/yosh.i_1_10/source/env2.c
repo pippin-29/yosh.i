@@ -6,7 +6,7 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:10:30 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/03 13:37:09 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/03 15:27:21 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,31 +21,36 @@ int	rm_envv(char *envvar, t_cmd *cmd)
 	{
 		if (ft_strncmp(envvar, cmd->environ[i], ft_strlen(envvar)) == 0)
 			if (cmd->environ[i][ft_strlen(envvar)] == '=')
-				return (contract_env(cmd->environ, i, cmd));
+				return (contract_env(i, cmd));
 		i++;
 	}
 	return (0);
 }
 
-int	contract_env(char **tda, int index, t_cmd *cmd)
+int	contract_env(int index, t_cmd *cmd)
 {
 	int		i;
 	int		q;
+	char	**copy;
 
 	i = 0;
 	q = 0;
-	cmd->environ = malloc(sizeof(char *) * (ft_lstlen(tda)));
-	if (!cmd->environ)
+	if (cmd->environ[index + 1] == NULL)
+		cmd->environ[index] = NULL;
+	copy = malloc(sizeof(char *) * (ft_lstlen(cmd->environ) + 1));
+	if (!copy)
 		return (0);
-	while (tda[q])
+	while (cmd->environ[q])
 	{
 		if (i == index)
 			q++;
-		cmd->environ[i] = ft_strdup(tda[q]);
+		copy[i] = ft_strdup(cmd->environ[q]);
 		i++;
 		q++;
 	}
-	cmd->environ[i] = NULL;
+	copy[i] = NULL;
+	copy_environ(copy, cmd);
+	free(copy);
 	return (1);
 }
 
