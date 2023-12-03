@@ -10,11 +10,13 @@ It works on M1 (IF!) you install a brew version of readline. The makefile will h
 I have no guarantee that this works on linux in any way shape or form...
 I now have some guarantee this works on linux. (Since the evaluation of 1.07 at school)
 
-Type `` make `` in latest version directory.
+Type `` make `` in latest version directory (1_0X/yosh.i_1_0X).
 
 This will create a directory in `` $HOME/bin ``
 
-Append `` .bashrc `` or `` .zshrc `` file with `` export PATH=$PATH:$HOME/bin ``
+Run `` ./yosh.i `` within latest version directory.
+
+Alternatively Append `` .bashrc `` or `` .zshrc `` file with `` export PATH=$PATH:$HOME/bin ``
 
 Run from shell with `` yosh.i `` command.
 
@@ -31,30 +33,26 @@ This is a screenshot of yosh.i v1_04 (on M1 mac, running in 'terminal' terminal 
 ![yosh.i M1 Terminal](https://github.com/pippin-29/yosh.i/blob/main/Screenshot2.png?raw=true)
 
 # Current Features:
+ - quote handling
+ - file redirection. (First In or Out takes precedence)
+	-  '<', '>', '|', '?' , '*' excluded from filenames
+ - handles a single pipe. (pipe takes precedence over redirections)
+ - command history (keys up/down) (saves & loads upon entry/exit)
+ - directory autocomplete (using tab)
+ - Enviroment variable expansion
+ - Simple command execution i.e.    `` ls -la `` ``./a.out`` ``/bin/ls -la``
+ - prompt ``🏠uname@hname :: yosh.i_1_03 [exitstatus] 💀>`` with colours.
+ - builtin functions similar to bash
+	-  export
+	-  unset
+	-  echo (with -n option)
+	-  cd (with absolute or relative path, or no parameters, '~' unsupported)
+	-  pwd
+	-  env
+	-  exit
+ - signal handling
+	-  ctrl-c (continues to next prompt, exits child process)
+	-  ctrl-d (exit process)
+	-  ctrl-\ (returns cursor to beginning, exits child process)
 
-quote handling
-
-file redirection
-
-handles a single pipe.
-
-command history (keys up/down)
-
-directory autocomplete (using tab)
-
-Enviroment variable Expansion
-
-Simple command execution i.e.    `` ls -la `` ``./a.out`` ``/bin/ls -la``
-
-builtin functions similar to bash
-  -  export
-  -  unset
-  -  echo
-  -  cd
-  -  pwd
-  -  env
-
-signal handling for ctrl-c
-
-prompt ``🏠uname@hname :: yosh.i_1_03 [exitstatus] 💀>`` with colours.
 
