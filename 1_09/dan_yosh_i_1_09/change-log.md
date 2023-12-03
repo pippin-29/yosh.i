@@ -60,4 +60,9 @@
  - Excluding '<', '>', '|', '?' , '*' from filenames in redirections.
  - $SHLVL updates with new instances of yosh.i
  - copy of environ (g_environ2) is passed on to child processes now (bug fix)
- - 
+
+ # 1.10
+ - Global variables removed (environ and the copy);
+ - now envp is passed into the main, a copy is made and assigned to cmd->environ
+ - cmd struct passed into all functions that used the global variable.
+ - Norminette styling applied
