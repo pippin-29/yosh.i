@@ -6,9 +6,7 @@ A mini shell. 42.
 This program is currently being developed on macOS Catalina. (If you happen to be using this, it might work).
 It works on M1 (IF!) you install a brew version of readline. The makefile will handle the rest.
 
-
-I have no guarantee that this works on linux in any way shape or form...
-I now have some guarantee this works on linux. (Since the evaluation of 1.07 at school)
+Does not currently work on linux, there are some dependencies not included/linked.
 
 Type `` make `` in latest version directory (1_0X/yosh.i_1_0X).
 
