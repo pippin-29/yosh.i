@@ -9,7 +9,7 @@ It works on M1 if you install a brew version of readline. The makefile will hand
 There is a version that is available for testing on linux. My primary linux installation
 is a debian base distro called PeppermintOS.
 
-Type `` make `` in latest version directory (1_0X/yosh.i_1_0X). (This will also remake the library archive, and clean the object files away.)
+Type `` make `` in latest version directory (1.11). (This will also remake the library archive, and clean the object files away.)
 
 This will create a directory in `` $HOME/bin ``
 
