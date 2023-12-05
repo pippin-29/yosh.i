@@ -6,11 +6,29 @@
 /*   By: dhadding <operas.referee.0e@icloud.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:44:20 by dhadding          #+#    #+#             */
-/*   Updated: 2023/12/04 14:33:41 by dhadding         ###   ########.fr       */
+/*   Updated: 2023/12/05 22:53:32 by dhadding         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/yosh_i.h"
+
+static int	too_many_pipes(char **pipredir)
+{
+	int i;
+	int d;
+
+	i = 0;
+	d = 0;
+	while (pipredir[i])
+	{
+		if (ft_strcmp(pipredir[i], PIPE) == 0)
+			d++;
+		i++;
+	}
+	if (d > 1)
+		return (printf("\e[1;31mToo Many Pipes\e[0;32m\n"));
+	return (0);
+}
 
 int	parse_input(t_cmd *cmd, t_norm *norm)
 {
@@ -21,6 +39,8 @@ int	parse_input(t_cmd *cmd, t_norm *norm)
 	s = dequote_built(cmd->expanded, tmp, norm);
 	cmd->tokens = ft_split(s, ' ');
 	find_pipes_redirection(cmd);
+	if (too_many_pipes(cmd->pipredir))
+		return (0);
 	cmd->tokens = ft_mini_split(s, ' ', norm);
 	if (cmd->pipredir[0] == NULL)
 	{

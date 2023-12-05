@@ -71,4 +71,10 @@
  # 1.11
  - removed as many leaks as possible
  - slight code-shuffle (passing in structs a little differently)
- - $SHLVL pulled from version
+ - $SHLVL pulled from version (it is not updated)
+
+ # 1.11 (debian)
+ - inclusion of dependency (stdint.h), for function i never used in the program.
+ - inclusion of dependency (sys/wait.h), for funstion waitpid().
+ - removed emoticons from prompt and entry_message.
+ - corrected funtionality requiring the use of one or less pipes.

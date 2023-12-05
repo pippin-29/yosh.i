@@ -4,11 +4,12 @@ A mini shell. 42.
 ## Installation
 
 This program is currently being developed on macOS Catalina. (If you happen to be using this, it might work).
-It works on M1 (IF!) you install a brew version of readline. The makefile will handle the rest.
+It works on M1 if you install a brew version of readline. The makefile will handle the rest.
 
-Does not currently work on linux, there are some dependencies not included/linked.
+There is a version that is available for testing on linux. My primary linux installation
+is a debian base distro called PeppermintOS.
 
-Type `` make `` in latest version directory (1_0X/yosh.i_1_0X).
+Type `` make `` in latest version directory (1_0X/yosh.i_1_0X). (This will also remake the library archive, and clean the object files away.)
 
 This will create a directory in `` $HOME/bin ``
 
